@@ -14,6 +14,7 @@ export async function POST(request:NextRequest){
 
      //check user if already exist
       const user = await User.findOne({email});
+    //   console.log(user);
       if (!user){
         return NextResponse.json({error:"user does not exist"},{status:400});
       }
@@ -21,11 +22,12 @@ export async function POST(request:NextRequest){
 
       // password validation
       const validPassword = await bcryptjs.compare(password, user.password);
-    
+  
       if (!validPassword){
         return NextResponse.json({error:"Invalid Password"},{status:400});
 
       }
+  
       //create token data
       const tokenData = {
         id:user._id,
@@ -34,13 +36,14 @@ export async function POST(request:NextRequest){
       }
     
      //create token 
- console
      const token = await jwt.sign(tokenData,process.env.TOKEN_SECRET! , {expiresIn:"1d"});
      
 
+    const name = user.username;
      const response = NextResponse.json({
-        message: "login successfull",
+        message: "login successfully",
         success:true,
+        data:`${name.trim()}`
         
      });
      response.cookies.set("token",token,{
@@ -52,7 +55,8 @@ export async function POST(request:NextRequest){
     return response
     } catch (error: any) {
         console.log("authentication error");
-        return  NextResponse.json({error:error.message},{status:500});
+        return  NextResponse.json(
+            {error:error.message},{status:500});
         
     }
 }
