@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 import Link from "next/link";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 import axios from "axios";
 
 const LoginPage = ()=> {

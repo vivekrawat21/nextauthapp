@@ -26,7 +26,7 @@ const SignUpPage = ()=> {
             router.push("/login")
       } catch (error:any) {
         console.log("Signup is failed "+error.message);
-        toast.error(error.message);
+        toast.error("Signup failed:"+error.message);
       }
       finally{
         setLoading(false);

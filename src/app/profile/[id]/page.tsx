@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import axios from "axios"
-import Link from "next/link";
+import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 export default function UserProfile({ params }: any) {
@@ -13,12 +13,14 @@ export default function UserProfile({ params }: any) {
             const response = await axios.get("/api/users/logout")
 
             setLoading(false);
+            toast.success("loggedout successfully");
 
             console.log(response.data.message);
             router.push("/login")
         }
-        catch (err) {
-
+        catch (err:any) {
+           console.log(err.message);
+         toast.error(err.message);
         }
         finally {
             setLoading(false);
@@ -28,9 +30,9 @@ export default function UserProfile({ params }: any) {
     }
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <h1>UserProfile</h1>
+            <h1 className="text-cyan-400 text-2xl font-extrabold">UserProfile</h1>
             <hr />
-            <p className="text-4xl">Profile page{params.id}</p>
+            <p className="text-xl font-serif text-purple-100">Profile page:  {params.id}</p>
             <hr />
 
             <button className="p-5 my-6 border   rounded-lg border-red-300 hover:bg-gray-900" onClick={onLogout} >
