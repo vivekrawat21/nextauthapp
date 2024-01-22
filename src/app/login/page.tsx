@@ -70,7 +70,7 @@ const LoginPage = ()=> {
         {buttonDisabled ? "Not login" : "Login"}
         </button>
         <button>
-          <Link href = "/SignUp">visit SignUp</Link>
+          <Link href = "/signup">visit SignUp</Link>
         </button>
         </div>
   )
