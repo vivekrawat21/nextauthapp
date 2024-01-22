@@ -5,7 +5,9 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 export default function UserProfile({ params }: any) {
+    
     const [loading, setLoading] = React.useState(false)
+    const[data,setData] = React.useState({});
     const router = useRouter();
     const onLogout = async () => {
         try {
@@ -27,6 +29,11 @@ export default function UserProfile({ params }: any) {
         }
 
 
+    }
+    const getUserDetails = async () => {
+       const response =  await axios.get("/api/users/me");
+       console.log(response.data);
+        setData(response.data.data);
     }
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">

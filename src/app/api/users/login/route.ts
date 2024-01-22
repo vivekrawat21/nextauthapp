@@ -38,12 +38,10 @@ export async function POST(request:NextRequest){
      //create token 
      const token = await jwt.sign(tokenData,process.env.TOKEN_SECRET! , {expiresIn:"1d"});
      
-
-    const name = user.username;
      const response = NextResponse.json({
         message: "login successfully",
         success:true,
-        data:`${name}`
+        data:`${user._id}`
         
      });
      response.cookies.set("token",token,{
