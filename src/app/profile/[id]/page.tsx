@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios"
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function UserProfile({ params }: any) {
     
@@ -44,6 +45,9 @@ export default function UserProfile({ params }: any) {
 
             <button className="p-5 my-6 border   rounded-lg border-red-300 hover:bg-gray-900" onClick={onLogout} >
                 {loading ? "logging out..." : "Logout"}
+            </button>
+            <button className="p-5 my-6 border   rounded-lg border-green-300 hover:bg-gray-900" >
+                <Link href="/profile">Profile</Link>
             </button>
         </div>
     )

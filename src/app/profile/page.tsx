@@ -40,7 +40,7 @@ export default function ProfilePage() {
         <div className="flex flex-col items-center justify-center min-h-screen">
             <h1 className="text-cyan-400 text-2xl font-extrabold">UserProfile</h1>
             <hr />
-            <p className="text-xl font-serif text-purple-100">Profile page:  {Object.entries(data).length===0?"click on button to get details":<Link href={`/profile/${data._id}`}>{data.username}</Link>}</p>
+            <p className="text-xl font-serif text-purple-100">Profile page:  {Object.entries(data).length===0?"click on button to get details":<Link href={`/profile/${data._id}`}><span className="underline text-blue-500 font-mono text-lg">{data.username}</span></Link>}</p>
             <hr />
 
             <button className="p-5 my-6 border   rounded-lg border-red-300 hover:bg-gray-900" onClick={onLogout} >
