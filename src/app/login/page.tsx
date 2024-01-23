@@ -13,11 +13,8 @@ const LoginPage = ()=> {
         password :"",
     });
     const [loading , setLoading] = React.useState(false);
-    const [buttonDisabled, setButtonDisabled] = React.useState(false);
+    const [buttonDisabled, setButtonDisabled]= React.useState(false);
 
-
-    
-  
     const onLogin = async () => {
     try {
       setLoading(true);
@@ -71,6 +68,9 @@ const LoginPage = ()=> {
         </button>
         <button>
           <Link href = "/signup">visit SignUp</Link>
+        </button>
+        <button className="border-b font-bold">
+       <Link href="/emailverify"> Forget Password?</Link>  
         </button>
         </div>
   )

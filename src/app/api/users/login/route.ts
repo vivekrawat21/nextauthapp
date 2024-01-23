@@ -9,7 +9,7 @@ connect()
 export async function POST(request:NextRequest){
     try {
      const reqBody =  await request.json();
-     const { email , password}= reqBody;
+     const { email , password }= reqBody;
      console.log(reqBody);
 
      //check user if already exist
@@ -50,7 +50,7 @@ export async function POST(request:NextRequest){
      response.cookies.set("token",token,{
         httpOnly:true
      })
-     
+
     
     
     return response
