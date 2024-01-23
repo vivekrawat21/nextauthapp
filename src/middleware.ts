@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname
     console.log(path);
     const isPublicPath = path==='/login'||
-    path==='/signup';
+    path==='/signup'||path ==='/verifyemail';
     const token = request.cookies.get('token')?.value ||"" ;
     if (isPublicPath && token) {
         return NextResponse.redirect(new URL('/profile', request.nextUrl));
@@ -23,6 +23,6 @@ export const config = {
         '/profile/:path*',
         '/signup',
         '/login',
-        
+        '/verifyemail',
     ]
 }

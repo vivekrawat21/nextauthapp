@@ -14,7 +14,7 @@ export async function POST(request:NextRequest){
 
      //check user if already exist
       const user = await User.findOne({email});
-    //   console.log(user);
+      console.log(user);
       if (!user){
         return NextResponse.json({error:"user does not exist"},{status:400});
       }
@@ -26,6 +26,9 @@ export async function POST(request:NextRequest){
       if (!validPassword){
         return NextResponse.json({error:"Invalid Password"},{status:400});
 
+      }
+      if(user.isVarified==false){
+        return NextResponse.json({error:"Your email is not varified"},{status:400});
       }
   
       //create token data
