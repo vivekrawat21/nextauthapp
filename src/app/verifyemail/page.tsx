@@ -34,22 +34,22 @@ export default function VerifyEmailPage(){
             <h1 className="text-4xl ">
                 Verify Email
             </h1>
-            <h2 className="p-2 bg-orange-500 text-black">
+            <h2 className="p-2  text-cyan-300 font-serif font-extrabold ">
                 {token?`${token}`:"no token"}
             </h2>
             {verified && (
                 <div>
-                    <h2 className="text-2xl text-green-400">
+                    <h2 className="text-2xl font-mono font-bold text-green-400">
                        email varified
                     </h2>
-                    <Link href="/login" className="text-blue-500">
+                    <Link href="/login" className="text-blue-500 border font-bold border-blue-300 py-3 rounded-lg">
                         Login
                     </Link>
                 </div>
             )}
             {error && (
                 <div>
-                    <h2 className="text-2xl text-red-400">
+                    <h2 className="text-2xl font-bold font-mono text-red-400">
                        Error
                     </h2>
                     {/* <Link href="/signup" className="text-blue-500">
