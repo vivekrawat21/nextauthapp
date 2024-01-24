@@ -8,10 +8,10 @@ export function middleware(request: NextRequest) {
     path==='/signup'||path ==='/verifyemail'||path === '/forgotpassword'||path ==='/emailverify';
 
     const token = request.cookies.get('token')?.value || ''
-    if (isPublicPath && token) {
+    if (isPublicPath && token.trim().length > 0) {
         return NextResponse.redirect(new URL('/profile', request.nextUrl));
     }
-    if (!isPublicPath && !token) {
+    if (!isPublicPath && token.trim().length == 0) {
         return NextResponse.redirect(new URL('/login', request.nextUrl));
     }
 }
