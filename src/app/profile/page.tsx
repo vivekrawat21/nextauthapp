@@ -17,10 +17,7 @@ export default function ProfilePage() {
             const response = await axios.get("/api/users/logout")
 
             setLoading(false);
-            
-
-            console.log(response.data.message);
-            console.log("cookie is "+response.data.cookies)
+           console.log(response.data.message); 
             toast.success(response.data.message)
             router.push("/login")
            
