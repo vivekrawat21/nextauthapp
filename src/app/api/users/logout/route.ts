@@ -6,11 +6,7 @@ export async function GET(){
     message :"user logout successfully",
     success: true,  }
    )
-   await response.cookies.set("token" , "",
-   { 
-    httpOnly: true , expires: new Date(0)
-}
-);
+ response.cookies.delete("token");
 // console.log(response.cookies.get("token") );
    return response;
     }
