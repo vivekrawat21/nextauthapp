@@ -36,6 +36,7 @@ export default function ProfilePage() {
     const getUserDetails = async () => {
        const response =  await axios.get("/api/users/me");
        console.log(response.data);
+       toast.success(response.data.message);
         setData(response.data.data._id);
         setName(response.data.data.username);
     }
