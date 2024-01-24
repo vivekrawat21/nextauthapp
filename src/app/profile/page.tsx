@@ -20,8 +20,11 @@ export default function ProfilePage() {
             
 
             console.log(response.data.message);
-            router.push("/login")
+            console.log("cookie is "+response.data.cookies)
             toast.success(response.data.message)
+            router.push("/login")
+           
+
         }
         catch (err:any) {
            console.log(err.message);

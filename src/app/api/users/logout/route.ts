@@ -7,9 +7,10 @@ export async function GET(){
     success: true,
    });
    response.cookies.set("token" , "",
-   { httpOnly: true , expires: new Date(0)
+   { httpOnly: true , expires: 0
 });
-
+var cookie:any = response.cookies.get("token");
+// console.log(response.cookies.get("token") );
    return response;
     }
     catch(error: any){

@@ -19,6 +19,7 @@ export default function UserProfile({ params }: any) {
             toast.success(response.data.message);
 
             console.log(response.data.message);
+            console.log("cookie is "+response.data.cookies)
             router.push("/login")
         }
         catch (err:any) {
