@@ -2,14 +2,15 @@ import { NextResponse } from "next/server";
 
 export async function GET(){
     try{
-   const response = NextResponse.json({
+   const response: NextResponse = NextResponse.json({
     message :"user logout successfully",
-    success: true,
-   }
+    success: true,  }
    )
-   response.cookies.set("token" , "",
-   { httpOnly: true , expires: new Date(0)
-});
+   await response.cookies.set("token" , "",
+   { 
+    httpOnly: true , expires: new Date(0)
+}
+);
 // console.log(response.cookies.get("token") );
    return response;
     }
