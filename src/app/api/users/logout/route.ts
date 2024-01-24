@@ -5,11 +5,11 @@ export async function GET(){
    const response = NextResponse.json({
     message :"user logout successfully",
     success: true,
-   });
+   }
+   )
    response.cookies.set("token" , "",
-   { httpOnly: true , expires: 0
+   { httpOnly: true , expires: new Date(0)
 });
-var cookie:any = response.cookies.get("token");
 // console.log(response.cookies.get("token") );
    return response;
     }
