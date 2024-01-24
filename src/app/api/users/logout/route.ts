@@ -7,8 +7,7 @@ export async function GET(){
     message :"user logout successfully",
     success: true,  }
    )
-   cookies().delete('token')
-// console.log(response.cookies.get("token") );
+   cookies().delete('token');
    return response;
     }
     catch(error: any){

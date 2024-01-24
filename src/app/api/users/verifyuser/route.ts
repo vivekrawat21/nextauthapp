@@ -13,7 +13,7 @@ export  async function POST(req:NextRequest){
         email:userEmail
        }
     );
-    console.log(user);
+    // console.log(user);
     if(!user){
         // console.log("no user found")
         return NextResponse.json({message:"User not found"},{status:400})
