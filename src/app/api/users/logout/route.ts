@@ -10,7 +10,8 @@ export async function GET(){
     success: true,
    });
    respose.cookies.set("token","",
-   {httpOnly:true,expires: new Date(0)});
+   {httpOnly: true , expires: new Date(0)
+});
 
    return respose;
     }
