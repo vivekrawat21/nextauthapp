@@ -16,7 +16,7 @@ export default function UserProfile({ params }: any) {
             const response = await axios.get("/api/users/logout")
 
             setLoading(false);
-            toast.success("loggedout successfully");
+            toast.success(response.data.message);
 
             console.log(response.data.message);
             router.push("/login")
